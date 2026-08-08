@@ -1,0 +1,280 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>ONLYSNACKPACK :: reality (2008)</title>
+<link rel="stylesheet" href="/css/main.css?v=9" />
+<link rel="icon" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%23000'/><text x='4' y='22' fill='%237df9ff' font-family='monospace' font-size='20'>★</text></svg>" />
+</head>
+<body class="preboot">
+
+<!-- BOOT SCREEN -->
+<div id="boot" class="boot">
+  <div class="boot-inner">
+    <div class="boot-crt"></div>
+    <div class="boot-logo">ONLYSNACKPACK</div>
+    <div class="boot-line" id="bootLine">welcome to reality (2008)</div>
+    <div class="boot-blink">_</div>
+    <button id="bootEnter" class="boot-btn">► PRESS ENTER</button>
+    <div class="boot-fine">est. two-thousand-and-eight</div>
+    <div class="boot-bar"><div class="boot-bar-fill" id="bootBar"></div></div>
+  </div>
+</div>
+
+<!-- SPOTLIGHT DARK MODE OVERLAY -->
+<div id="spotlight" class="spotlight hidden"></div>
+<div id="spotCursor" class="spot-cursor hidden"></div>
+
+<!-- Glitter trail particles container -->
+<div id="glitter" class="glitter-layer"></div>
+
+<!-- TASKBAR (bottom) -->
+<div id="taskbar" class="taskbar hidden">
+  <button class="start-btn" id="startBtn">
+    <span class="start-flag">★</span><span>start</span>
+  </button>
+  <div class="task-windows" id="taskWindows"></div>
+  <div class="tray">
+    <span class="tray-ico" title="spotlight dark mode" id="traySpot">☾</span>
+    <span class="tray-ico" title="sound" id="trayVol">♪</span>
+    <span class="tray-ico" title="wifi">◎</span>
+    <span class="tray-clock" id="trayClock">00:00</span>
+  </div>
+</div>
+
+<!-- START MENU -->
+<div id="startMenu" class="start-menu hidden">
+  <div class="start-head">
+    <div class="start-avatar" id="startAvatar">?</div>
+    <div class="start-name" id="startName">guest</div>
+  </div>
+  <div class="start-cols">
+    <div class="start-col">
+      <div class="start-item" data-view="home"><span class="si-ico">◉</span>home</div>
+      <div class="start-item hidden" data-view="profile" id="startProfile"><span class="si-ico">☺</span>my profile</div>
+      <div class="start-item" data-view="musiclibrary"><span class="si-ico">♪</span>my music</div>
+      <div class="start-item" data-view="people"><span class="si-ico">♥</span>buddies</div>
+      <div class="start-item" data-view="settings"><span class="si-ico">⚙</span>settings</div>
+    </div>
+    <div class="start-col right">
+      <div class="start-item" id="startLogin"><span class="si-ico">⎋</span>log in / sign up</div>
+      <div class="start-item" data-view="admin"><span class="si-ico">⚠</span>ONLYSNACKPACK zone</div>
+      <div class="start-item hidden" id="startLogout"><span class="si-ico">×</span>log out</div>
+    </div>
+  </div>
+  <div class="start-foot">
+    <button class="start-foot-btn" id="startShut">⎋ sign out</button>
+  </div>
+</div>
+
+<!-- DESKTOP ICONS -->
+<div id="desktop" class="desktop hidden"></div>
+
+<!-- WINDOWS CONTAINER -->
+<div id="windows" class="windows"></div>
+
+<!-- MAIN WINDOW (TV/Feed) -->
+<div id="mainWin" class="window main-win hidden">
+  <div class="win-bar" data-drag>
+    <div class="win-title">
+      <span class="win-ico">★</span>
+      <span class="win-name" id="winName">home</span>
+      <span class="win-sub" id="winSub">— onlysnackpack</span>
+    </div>
+    <div class="win-btns">
+      <button class="wb" title="minimize" data-min>_</button>
+      <button class="wb" title="maximize" data-max>▢</button>
+      <button class="wb close" title="close" data-close>×</button>
+    </div>
+    <div class="win-menu" id="winMenu">
+      <span data-view="home">home</span>
+      <span data-view="following">following</span>
+      <span data-view="explore">explore</span>
+      <span data-view="people">buddies</span>
+      <span data-view="musiclibrary">music</span>
+      <span data-view="guestbook">guestbook</span>
+      <span data-view="admin">⚠ ONLYSNACKPACK</span>
+      <span class="post"><button class="chip hidden" id="newPostBtn">✎ new post</button></span>
+    </div>
+  </div>
+  <div class="win-body tv-chassis">
+    <!-- CRT bezel left: speaker -->
+    <div class="tv-left">
+      <div class="tv-brand">ONLYSNACKPACK</div>
+      <div class="tv-model">TEMPLE-TV · model 2008</div>
+      <div class="tv-speaker">
+        <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+      </div>
+      <div class="tv-led-row">
+        <span class="tv-led" id="tvLed">● ON AIR</span>
+      </div>
+    </div>
+    <!-- SIDEBAR INSIDE WINDOW -->
+    <aside class="sidebar" id="sidebar">
+      <div class="side-top">
+        <div class="brand">
+          <span class="brand-dot">●</span>
+          <span class="brand-txt">ONLYSNACKPACK</span>
+          <span class="brand-live">LIVE</span>
+        </div>
+        <div class="me-card" id="meCard">
+          <div class="me-avatar" id="meAvatar"></div>
+          <div class="me-meta">
+            <div class="me-name" id="meName">guest</div>
+            <div class="me-code" id="meCode">OSP-??????</div>
+            <div class="me-stats" id="meStats">visitor #<span id="visitorNum">000001</span></div>
+          </div>
+        </div>
+        <!-- Visitor counter + blinkies -->
+        <div class="blinkie-row">
+          <div class="blinkie blink" title="best viewed on CRT">★ CRT OK ★</div>
+          <div class="blinkie blink" title="hand made" id="blinkHM">HAND MADE</div>
+          <div class="blinkie blink" title="est. 2008">EST. 2008</div>
+          <div class="blinkie blink" title="made in reality">★ REAL ★</div>
+        </div>
+      </div>
+
+      <div class="side-section">
+        <div class="side-label">▾ FEEDS
+          <button class="tinybtn hidden" id="newPostBtn2" title="new post">+ post</button>
+        </div>
+        <button class="side-item" data-view="home" data-tooltip="main feed, no community needed">
+          <span class="si-ico">◉</span><span class="si-label">home</span>
+        </button>
+        <button class="side-item" data-view="following" data-tooltip="only people you follow">
+          <span class="si-ico">♥</span><span class="si-label">following</span>
+        </button>
+        <button class="side-item" data-view="explore" data-tooltip="everybody, newest first">
+          <span class="si-ico">✦</span><span class="si-label">explore</span>
+        </button>
+        <button class="side-item" data-view="guestbook" data-tooltip="sign the guestbook">
+          <span class="si-ico">✎</span><span class="si-label">guestbook</span>
+        </button>
+      </div>
+
+      <div class="side-section">
+        <div class="side-label">▾ COMMUNITIES
+          <button class="tinybtn" id="newCommunityBtn" title="make your own">+ new</button>
+        </div>
+        <div id="communityList" class="side-scroll"></div>
+      </div>
+
+      <div class="side-section apps-section">
+        <div class="side-label">▾ TEMPLE TV / APPS <span class="side-count" id="appCount">0</span></div>
+        <div id="appList" class="side-scroll side-apps"></div>
+      </div>
+
+      <!-- Now playing sticker -->
+      <div class="np-sticker hidden" id="npSticker">
+        <div class="np-sticker-head">♪ NOW PLAYING ♪</div>
+        <div class="np-sticker-title" id="npStickerTitle">—</div>
+        <div class="np-sticker-artist" id="npStickerSub"></div>
+        <div class="np-sticker-bars"><i></i><i></i><i></i><i></i><i></i></div>
+      </div>
+
+      <!-- Buddy list compact -->
+      <div class="side-section buddies-mini">
+        <div class="side-label">▾ BUDDIES ONLINE</div>
+        <div class="buddy-list" id="buddyList"><span class="p-sub" style="padding:6px;display:block">nobody online yet</span></div>
+      </div>
+
+      <div class="side-bot">
+        <button class="side-item small" data-view="settings" data-tooltip="settings & dark mode">
+          <span class="si-ico">⚙</span><span class="si-label">settings</span>
+        </button>
+        <button class="side-item small hidden" id="logoutBtn" data-tooltip="log out">
+          <span class="si-ico">⎋</span><span class="si-label">log out</span>
+        </button>
+      </div>
+    </aside>
+
+    <!-- SCREEN -->
+    <div class="screen-wrap">
+      <div class="screen-inner" id="screenWrap">
+        <main class="tv-screen" id="screen">
+          <div class="loading">tuning in…</div>
+        </main>
+      </div>
+      <div class="screen-corners">
+        <i></i><i></i><i></i><i></i>
+      </div>
+    </div>
+
+    <!-- Right bezel: dials -->
+    <div class="tv-right">
+      <div class="tv-dial" title="channel">
+        <div class="dial"><i>CH</i></div>
+        <div class="dial-label">CHANNEL</div>
+        <div class="tv-ch" id="tvCh">CH-01</div>
+      </div>
+      <div class="tv-dial" title="volume">
+        <div class="dial"><i>VOL</i></div>
+        <div class="dial-label">VOLUME</div>
+      </div>
+      <div class="tv-antenna">
+        <i></i><i></i>
+      </div>
+      <div class="tv-hits">YOU ARE VISITOR<br>#<span id="visitorNum2">000001</span></div>
+      <div class="tv-foot">EST. 2008<br>MADE IN REALITY</div>
+    </div>
+  </div>
+  <div class="win-status">
+    <span class="tv-led-inline">● ON AIR</span>
+    <span class="tv-clock-inline" id="tvClock">00:00:00</span>
+    <span class="tv-hits-inline">hits: <span id="hitCount">0</span></span>
+  </div>
+</div>
+
+<!-- TOOLTIP -->
+<div id="tooltip" class="tooltip hidden"></div>
+
+<!-- MODAL -->
+<div id="modalRoot" class="modal-root hidden">
+  <div class="modal-backdrop" data-close></div>
+  <div class="modal" id="modalBox">
+    <div class="modal-head">
+      <div class="modal-title" id="modalTitle">title</div>
+      <button class="modal-x" data-close>×</button>
+    </div>
+    <div class="modal-body" id="modalBody"></div>
+  </div>
+</div>
+
+<!-- MSN-STYLE POPUP TOAST -->
+<div id="msnToast" class="msn-toast hidden">
+  <div class="msn-bar"><span id="msnTitle">buddy signed in</span><button class="msn-x" id="msnClose">×</button></div>
+  <div class="msn-body">
+    <div class="msn-avatar" id="msnAvatar">★</div>
+    <div class="msn-text" id="msnText">welcome to reality</div>
+  </div>
+</div>
+
+<!-- GLOBAL NOW-PLAYING -->
+<div id="nowPlaying" class="np hidden">
+  <button class="np-play" id="npPlay">▶</button>
+  <div class="np-info"><div class="np-title" id="npTitle">—</div><div class="np-sub" id="npSub"></div></div>
+  <input type="range" id="npSeek" class="np-seek" min="0" max="100" value="0" />
+  <div class="np-vol">
+    <span>♪</span>
+    <input type="range" id="npVol" min="0" max="1" step="0.01" value="0.7"/>
+  </div>
+  <button class="np-close" id="npClose">×</button>
+  <audio id="npAudio" preload="none"></audio>
+</div>
+
+<!-- SCROLL TO TOP -->
+<button class="scroll-top" id="scrollTop" title="back to top">▲</button>
+
+<!-- Guestbook backend is just comments on a special 'guestbook' post under the hood; we will inject here -->
+
+<!-- SCRIPTS -->
+<script src="/js/api.js"></script>
+<script src="/js/ui.js"></script>
+<script src="/js/windows.js"></script>
+<script src="/js/feed.js"></script>
+<script src="/js/apps.js"></script>
+<script src="/js/games.js"></script>
+<script src="/js/main.js"></script>
+</body>
+</html>
