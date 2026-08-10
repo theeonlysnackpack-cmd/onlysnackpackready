@@ -29,12 +29,14 @@
     bindTooltips(list);
   }
 
-  function setAppTitle(name, sub){
-    $('#tvTitle').textContent = name;
-    $('#tvSub').textContent = sub||'';
-    $('#tvCh').textContent = 'CH-AP';
-  }
-
+function setAppTitle(name, sub){
+  const wn = document.getElementById('winName');
+  const ws = document.getElementById('winSub');
+  const ch = document.getElementById('tvCh');
+  if (wn) wn.textContent = name;
+  if (ws) ws.textContent = sub || 'onlysnackpack';
+  if (ch) ch.textContent = 'CH-AP';
+}
   // App lifecycle: intervals/timeouts/rAFs/AudioContexts created while an app is
   // active are tracked and auto-cleared when the user navigates away. Apps don't
   // need to clean up after themselves.
